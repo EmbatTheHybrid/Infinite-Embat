@@ -14,10 +14,10 @@ window.onscroll = function() {
 
 	last = last.cloneNode(true)
 
-	if (Math.floor(Math.random() * 100) <= 1) {
+	if (Math.floor(Math.random() * 100) <= 2) {
 		// Easter egg
 		let image = ""
-		if (Math.floor(Math.random() * 1000) <= 4) {
+		if (Math.floor(Math.random() * 1000) <= 5) {
 			image = "Shitstappen"
 		} else {
 			image = (Math.floor(Math.random() * 4) + 1)
