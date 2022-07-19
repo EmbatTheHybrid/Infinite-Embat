@@ -11,6 +11,6 @@ window.onscroll = function() {
 	}
 
 	last = last.cloneNode(true)
-	last.firstElementChild.src = './images/' + (Math.floor(Math.random() * 8) + 1) + ".png"
+	last.firstElementChild.src = './images/' + (Math.floor(Math.random() * 13) + 1) + ".png"
 	parent.appendChild(last)
 }
