@@ -16,7 +16,13 @@ window.onscroll = function() {
 
 	if (Math.floor(Math.random() * 100) <= 1) {
 		// Easter egg
-		let image = (Math.floor(Math.random() * 1000) <= 4 ? 'Shitstappen' : (Math.floor(Math.random() * 4) + 1))
+		let image = ""
+		if (Math.floor(Math.random() * 1000) <= 4) {
+			image = "Shitstappen"
+		} else {
+			image = (Math.floor(Math.random() * 4) + 1)
+		}
+
 		last.firstElementChild.src = './images/EasterEgg/' + image + '.png'
 	} else {
 		last.firstElementChild.src = './images/' + (Math.floor(Math.random() * 13) + 1) + ".png"
