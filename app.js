@@ -5,7 +5,7 @@ last.id = ""
 
 window.onscroll = function() {
 	let lastY = last.firstElementChild.getBoundingClientRect().y
-	
+
 	if (window.scrollY < lastY) {
 		return
 	}
