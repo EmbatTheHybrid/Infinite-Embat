@@ -21,7 +21,7 @@ html {
 
 /* Hero section */
 .main {
-	background-image: linear-gradient(to bottom, var(--gradient-color), var(--main-color) 20%, var(--main-color) 80%, var(--gradient-color) 100%);
+	background-image: linear-gradient(to bottom, var(--gradient-color), var(--main-color) 20%, var(--main-color) 100%);
 }
 
 .main__container {
@@ -71,8 +71,8 @@ html {
 	}
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
 	#main__img {
-		width: 275px;
+		width: 300px;
 	}
-}
+} */

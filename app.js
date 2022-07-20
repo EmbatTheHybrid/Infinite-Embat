@@ -3,15 +3,17 @@ const parent = document.getElementById("index_container")
 let last = document.getElementById('last')
 last.id = ""
 
-window.onscroll = function() {
-	let lastY = last.firstElementChild.getBoundingClientRect().y
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) * 1.35  &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
 
-	if (window.scrollY < lastY) {
-		return
-	}
-
-	// Create image
-
+function createImage() {
 	last = last.cloneNode(true)
 
 	if (Math.floor(Math.random() * 100) <= 2) {
@@ -29,4 +31,18 @@ window.onscroll = function() {
 	}
 
 	parent.appendChild(last)
+}
+
+window.onscroll = function() {
+	if (!isInViewport(last)) {
+		return
+	}
+
+	// Create image
+
+	createImage()
+}
+
+if (window.innerWidth < 160) {
+	createImage()
 }
