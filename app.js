@@ -9,22 +9,49 @@ let observer = new IntersectionObserver(function(entries) {
 	}
 }, { threshold: [0]})
 
+let cache = {
+	"EasterEgg": {},
+	"Images": {}
+}
+
 function createImage() {
 	observer.unobserve(last)
-	last = last.cloneNode(true)
+	
+	let imgDir = ""
+	let foundCache = undefined
+
+	let image = ""
+	let place = ""
 
 	if (Math.floor(Math.random() * 100) <= 2) {
 		// Easter egg
-		let image = ""
+		
 		if (Math.floor(Math.random() * 1000) <= 5) {
 			image = "Shitstappen"
 		} else {
 			image = (Math.floor(Math.random() * 4) + 1)
 		}
 
-		last.firstElementChild.src = './images/EasterEgg/' + image + '.png'
+		image = image + ".png"
+
+		foundCache = cache["EasterEgg"][image]
+		place = "EasterEgg"
+
+		imgDir = './images/EasterEgg/' + image
 	} else {
-		last.firstElementChild.src = './images/' + (Math.floor(Math.random() * 13) + 1) + ".png"
+		image = (Math.floor(Math.random() * 13) + 1) + ".png"
+
+		foundCache = cache["Images"][image]
+		place = "Images"
+
+		imgDir = './images/' + image
+	}
+	
+	last = foundCache !== undefined ? foundCache.cloneNode(true) : last.cloneNode(true)
+
+	if (foundCache === undefined) {
+		last.firstElementChild.src = imgDir
+		cache[place][image] = last
 	}
 
 	observer.observe(last)
