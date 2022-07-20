@@ -71,8 +71,8 @@ html {
 	}
 }
 
-/* @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
 	#main__img {
 		width: 300px;
 	}
-} */
+}

@@ -3,17 +3,14 @@ const parent = document.getElementById("index_container")
 let last = document.getElementById('last')
 last.id = ""
 
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) * 1.35  &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+let observer = new IntersectionObserver(function(entries) {
+	if (entries[0].isIntersecting) {
+		createImage()
+	}
+}, { threshold: [0]})
 
 function createImage() {
+	observer.unobserve(last)
 	last = last.cloneNode(true)
 
 	if (Math.floor(Math.random() * 100) <= 2) {
@@ -30,18 +27,14 @@ function createImage() {
 		last.firstElementChild.src = './images/' + (Math.floor(Math.random() * 13) + 1) + ".png"
 	}
 
+	observer.observe(last)
 	parent.appendChild(last)
 }
 
-window.onscroll = function() {
-	if (!isInViewport(last)) {
-		return
-	}
+observer.observe(last)
 
-	// Create image
-
-	createImage()
-}
+createImage()
+createImage()
 
 if (window.innerWidth < 160) {
 	createImage()
