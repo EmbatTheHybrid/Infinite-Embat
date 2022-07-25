@@ -50,7 +50,7 @@ function createImage() {
 	last = foundCache !== undefined ? foundCache.cloneNode(true) : last.cloneNode(true)
 
 	if (foundCache === undefined) {
-		last.firstElementChild.src = imgDir
+		last.style.backgroundImage = `url(${imgDir})`
 		cache[place][image] = last
 	}
 

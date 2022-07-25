@@ -41,38 +41,14 @@ html {
 	background-image: none;
 }
 
-.main__img-container {
-	max-width: 100%;
-	height: auto;
-	margin-bottom: 2rem;
-}
-
-#main__img {
-	display: block;
+.main__img {
 	border: 10px solid;
 	border-color: var(--border-color);
 	margin-left: auto;
 	margin-right: auto;
-	height: auto;
-	width: 600px;
-	max-height: auto;
+	width: clamp(225px, 65vw, 540px);
+	height: clamp(225px, 65vw, 540px);
 	max-width: 100%;
-}
-
-@media screen and (max-width: 960px) {
-	#main__img {
-		width: 450px;
-	}
-}
-
-@media screen and (max-width: 640px) {
-	#main__img {
-		width: 350px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	#main__img {
-		width: 300px;
-	}
+	background-size: cover;
+	margin-bottom: 2rem;
 }
